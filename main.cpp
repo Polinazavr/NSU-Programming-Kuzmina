@@ -1,64 +1,52 @@
 #include "app/baseapp.h"
-#include "ztyp/ztyp.h"
+#include "princeOfPersia/princeOfPersia.h"
 
 #include <iostream>
 
 class GameApp : public app::GameApp {
- public:
-  GameApp(int w, int h)
-      : app::GameApp(w, h) {
-  }
+    public:
+        GameApp(int w, int h) : app::GameApp(w, h) {}
 
- private:
+    private:
+        void Initialize() override {
+            render::LoadResource("resources/images/block.jpg", "block");
+            render::LoadResource("resources/images/fire1.jpg", "fire1");
+            render::LoadResource("resources/images/fire2.jpg", "fire2");
+            render::LoadResource("resources/images/fire3.jpg", "fire3");
+            render::LoadResource("resources/images/fire4.jpg", "fire4");
+            render::LoadResource("resources/images/fire5.jpg", "fire5");
+            render::LoadResource("resources/images/fire6.jpg", "fire6");
+        }
 
-  void Initialize() override {
-    render::LoadResource("resources/images/apple.png", "apple");
-    render::LoadResource("resources/images/stars.jpg", "stars");
-    render::LoadResource("resources/images/gradient.png", "gradient");
-    render::LoadResource("resources/images/mother.png", "mother");
+        void ProcessInput(const Uint8* keyboard, const MouseState& mouse) override {}
 
-    space_ships_.push_back(new zt::SmallShip("abc", {10, 10}, {0,0}));
-    space_ships_.push_back(new zt::SmallShip("abc", {100, 20}, {0,1}));
-    space_ships_.push_back(new zt::SpamShip("abc", {200, 10}, {0,0}));
-    space_ships_.push_back(new zt::SmallShip("abc", {220, 40}, {0,0}));
-    space_ships_.push_back(new zt::SmallShip("abc", {300, 50}, {0,0}));
-  }
+        void Render() override {
+            for (int i = 0; i < 7; i++) {
+                block1.Draw(96 * i, 600);
+            } 
 
-  void ProcessInput(const Uint8* keyboard, const MouseState& mouse) override {
-  }
+            for (int i = 13; i < 15; i++) {
+                block1.Draw(96 * i, 600);
+            } 
 
-  void Render() override {
-    render::DrawImage("stars", 0, 0, 480, 720);
-    /// ?? entire alpha channel render::DrawImage("gradient",0, 0, 480, 720);
+            fireFirst.Draw(96 * 8, 600, 1);
+            fireFirst.Draw(96 * 9, 600, 5);
+        }
 
-    for (const zt::SpaceShip* ss: space_ships_) {
-      const zt::Vector2d& pos = ss->GetPosition();
-      render::DrawImage("mother", pos.x, pos.y);
-    }
-  }
+        void Update(Uint32 millis) override { fireFirst.Update(96 * 8, 600);
+        }
 
-  void Update(Uint32 millis) override {
-
-    std::vector<zt::SpaceShip*> new_ss;
-    for (zt::SpaceShip* ss: space_ships_) {
-      auto ns = ss->Update(0.1f);
-      new_ss.insert(new_ss.end(), ns.begin(), ns.end());
-      //space_ships_.insert(space_ships_.end(), new_ss.begin(), new_ss.end());
-    }
-    space_ships_.insert(space_ships_.end(), new_ss.begin(), new_ss.end());
-  }
-
-  zt::Player player_;
-  std::vector<zt::SpaceShip*> space_ships_;
-  int level_ = 1;
+        Block block1;
+        Fire fireFirst;
 };
+
 
 #undef main
 int main() {
-  try {
-    GameApp(800, 800).Run();
-  } catch (std::exception& e) {
+    try {
+        GameApp(800, 800).Run();
+    } catch (std::exception& e) {
     std::cout << e.what() << std::endl;
-  }
-  return 0;
+    }
+    return 0;
 }

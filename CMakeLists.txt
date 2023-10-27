@@ -41,7 +41,9 @@ set(SOURCES
    ${PROJECT_SOURCE_DIR}/graphics/graphics.cpp
    ${PROJECT_SOURCE_DIR}/graphics/graphics.h   
    #${PROJECT_SOURCE_DIR}/snake/snake.h
-   ${PROJECT_SOURCE_DIR}/ztyp/ztyp.h
+    # ${PROJECT_SOURCE_DIR}/ztyp/ztyp.h
+
+   ${PROJECT_SOURCE_DIR}/princeOfPersia/princeOfPersia.h
    )
 add_executable(${PROJECT_NAME} ${SOURCES})
 
