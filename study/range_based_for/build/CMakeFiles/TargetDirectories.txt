@@ -1,0 +1,3 @@
+C:/Users/polin/progi/NSU Programming Kuzmina/study/range_based_for/build/CMakeFiles/study.dir
+C:/Users/polin/progi/NSU Programming Kuzmina/study/range_based_for/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/polin/progi/NSU Programming Kuzmina/study/range_based_for/build/CMakeFiles/ZERO_CHECK.dir

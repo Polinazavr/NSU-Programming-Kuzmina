@@ -1,0 +1,10 @@
+^C:\USERS\POLIN\PROGI\NSU PROGRAMMING KUZMINA\STUDY\RANGE_BASED_FOR\BUILD\CMAKEFILES\10F5AD054D75C00E58896455362EAFBF\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/polin/progi/NSU Programming Kuzmina/study/range_based_for" "-BC:/Users/polin/progi/NSU Programming Kuzmina/study/range_based_for/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/polin/progi/NSU Programming Kuzmina/study/range_based_for/build/study.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

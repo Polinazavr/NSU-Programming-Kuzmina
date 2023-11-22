@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\polin\progi\NSU Programming Kuzmina\study\range_based_for\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\polin\progi\NSU Programming Kuzmina\study\range_based_for\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{9E435EA6-E391-3C89-98EF-2B7715B54183}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
